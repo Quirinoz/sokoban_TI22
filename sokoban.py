@@ -12,14 +12,22 @@ class Sokoban:
   personaje_fila = 3 #fila en la que se encuentra el personaje
   personaje_columna = 3 #columna en la que se encuentra el personaje 
 #variables que ubican la posición del personaje en el mapa
-  def imprimirMapa(self):
-    for fila in self.mapa:
-      print(fila)
+  def imprimirMapa(self):# Imprime el mapa
+    for fila in self.mapa:# Recorre la fila por el mapa
+      print(fila)# Imprime la fila
+
+  def moverDerecha(self):
+    if self.mapa[self.personaje_fila][self.personaje_columna] == 0 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 1:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 1
+      self.mapa[self.personaje_fila][self.personaje_columna + 1] = 0
+      self.personaje_columna += 1
       
-  def jugar(self):
-    while True:
+  def jugar(self):# Controla el flujo del juego
+    while True:# Si es verdadera
       self.imprimirMapa()
       movimiento = input("Moverse")
+      if movimiento == "d":
+        self.moverDerecha()
 
 juego = Sokoban()
 juego.jugar()
