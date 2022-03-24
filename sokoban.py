@@ -3,7 +3,7 @@ class Sokoban:
     [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],
     [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
     [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
-    [3,1,1,0,4,4,1,2,1,1,1,1,1,1,3],
+    [3,1,1,0,1,4,1,1,1,1,1,1,1,1,3],
     [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
     [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
     [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]
@@ -16,27 +16,32 @@ class Sokoban:
     for fila in self.mapa:# Recorre la fila por el mapa
       print(fila)# Imprime la fila
 
+  # 0 (personaje, espacio)
   def moverDerecha(self):
     if self.mapa[self.personaje_fila][self.personaje_columna] == 0 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 1:
       self.mapa[self.personaje_fila][self.personaje_columna] = 1
       self.mapa[self.personaje_fila][self.personaje_columna + 1] = 0
       self.personaje_columna += 1 #solo es la unidad actualizada del movimiento
-      
+
+  # 1 (personaje, meta)
     elif self.mapa[self.personaje_fila][self.personaje_columna] == 0 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 4:
       self.mapa[self.personaje_fila][self.personaje_columna] = 1
       self.mapa[self.personaje_fila][self.personaje_columna + 1] = 5
       self.personaje_columna += 1 #solo es la unidad actualizada del movimiento
 
+  # 2 (personaje_meta, meta)
     elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 4:
       self.mapa[self.personaje_fila][self.personaje_columna] = 4
       self.mapa[self.personaje_fila][self.personaje_columna + 1] = 5
       self.personaje_columna += 1 #solo es la unidad actualizada del movimiento
 
+  # 3 (personaje_meta, espacio)
     elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 1:
       self.mapa[self.personaje_fila][self.personaje_columna] = 4
       self.mapa[self.personaje_fila][self.personaje_columna + 1] = 0
       self.personaje_columna += 1 #solo es la unidad actualizada del movimiento
 
+  # 4 ()
     elif self.mapa[self.personaje_fila][self.personaje_columna] == 0 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 2 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 1:
       self.mapa[self.personaje_fila][self.personaje_columna] = 1
       self.mapa[self.personaje_fila][self.personaje_columna + 1] = 0
