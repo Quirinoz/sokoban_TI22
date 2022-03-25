@@ -3,12 +3,26 @@ class Sokoban:
     [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],
     [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
     [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
-    [3,1,1,0,2,4,1,1,1,1,1,1,1,1,3],
+    [3,1,1,0,1,1,1,1,1,1,1,1,1,1,3],
     [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
     [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
     [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]
   ]
   #mapa donde uno puede representarse y poder moverse
+
+  # W - Arriba
+  # A - Izquierda
+  # S - Abajo
+  # D - Derecha
+
+  # 0 = personaje
+  # 1 = espacio
+  # 2 = caja
+  # 3 = pared
+  # 4 = meta
+  # 5 = personaje_meta
+  # 6 = caja_meta
+
   personaje_fila = 3 #fila en la que se encuentra el personaje
   personaje_columna = 3 #columna en la que se encuentra el personaje 
 #variables que ubican la posición del personaje en el mapa
