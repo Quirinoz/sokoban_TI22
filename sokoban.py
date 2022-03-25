@@ -55,7 +55,12 @@ class Sokoban:
       self.mapa[self.personaje_fila][self.personaje_columna + 1] = 6
       self.personaje_columna += 1 #solo es la unidad actualizada del movimiento
 
-  #
+  # 6 (personaje, caja_meta, espacio)
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 0 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 6 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 1:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 1
+      self.mapa[self.personaje_fila][self.personaje_columna + 1] = 5
+      self.mapa[self.personaje_fila][self.personaje_columna + 1] = 2
+      self.personaje_columna += 1 #solo es la unidad actualizada del movimiento
     
   def jugar(self):# Controla el flujo del juego
     while True:# Si es verdadera
