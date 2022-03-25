@@ -3,7 +3,7 @@ class Sokoban:
     [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],
     [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
     [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
-    [3,1,1,0,1,2,1,4,1,5,1,6,1,1,3],
+    [3,1,1,0,1,2,2,1,1,1,1,1,4,4,3],
     [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
     [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
     [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]
@@ -60,6 +60,13 @@ class Sokoban:
       self.mapa[self.personaje_fila][self.personaje_columna] = 1
       self.mapa[self.personaje_fila][self.personaje_columna + 1] = 5
       self.mapa[self.personaje_fila][self.personaje_columna + 1] = 2
+      self.personaje_columna += 1 #solo es la unidad actualizada del movimiento
+
+  # 7 (personaje, caja_meta, espacio)
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 0 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 6 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 4:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 1
+      self.mapa[self.personaje_fila][self.personaje_columna + 1] = 5
+      self.mapa[self.personaje_fila][self.personaje_columna + 1] = 6
       self.personaje_columna += 1 #solo es la unidad actualizada del movimiento
     
   def jugar(self):# Controla el flujo del juego
