@@ -3,7 +3,7 @@ class Sokoban:
     [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],
     [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
     [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
-    [3,1,1,0,1,2,1,1,1,1,1,1,1,1,3],
+    [3,1,1,0,1,2,1,1,1,1,1,1,1,4,3],
     [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
     [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
     [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]
@@ -117,7 +117,28 @@ class Sokoban:
       movimiento = input("Moverse")
       if movimiento == "d":
         self.moverDerecha()
+        
+  def jugarIzquierda(self):# Controla el flujo del juego
+    while True:# Solo si es verdadera
+      self.imprimirMapa()
+      movimiento = input("Moverse")
+      if movimiento == "a":
+        self.moverIzquierda()
 
+  def jugarArriba(self):# Controla el flujo del juego
+    while True:# Solo si es verdadera
+      self.imprimirMapa()
+      movimiento = input("Moverse")
+      if movimiento == "w":
+        self.moverArriba()
+
+  def jugarAbajo(self):# Controla el flujo del juego
+    while True:# Solo si es verdadera
+      self.imprimirMapa()
+      movimiento = input("Moverse")
+      if movimiento == "s":
+        self.imprimirMapa()
+        
 juego = Sokoban()
 juego.jugar()
 
