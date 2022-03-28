@@ -111,6 +111,15 @@ class Sokoban:
       self.mapa[self.personaje_fila][self.personaje_columna + 2] = 6
       self.personaje_columna += 1 #solo es la unidad actualizada del movimiento
 
+####################################################################################
+
+  # 0 (personaje, espacio)
+    def moverIzquierda(self):
+      if self.mapa[self.personaje_fila][self.personaje_columna] == 0 and self.mapa[self.personaje_fila][self.personaje_columna - 1] == 1:
+        self.mapa[self.personaje_fila][self.personaje_columna] = 1
+        self.mapa[self.personaje_fila][self.personaje_columna - 1] = 0
+        self.personaje_columna -= 1 #solo es la unidad actualizada del movimiento
+
   def jugar(self):# Controla el flujo del juego
     while True:# Si es verdadera
       self.imprimirMapa()
