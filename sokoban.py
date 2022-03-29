@@ -1,12 +1,6 @@
 class Sokoban:
   mapa = [
-    [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],
-    [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
-    [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
-    [3,1,1,0,1,2,1,1,1,1,1,1,1,4,3],
-    [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
-    [3,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
-    [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]
+    [3,4,1,1,1,1,2,4,1,0,1,4,2,1,1,1,1,4,3],
   ]
   #mapa donde uno puede representarse y poder moverse
 
@@ -23,8 +17,8 @@ class Sokoban:
   # 5 = personaje_meta
   # 6 = caja_meta
 
-  personaje_fila = 3 #fila en la que se encuentra el personaje
-  personaje_columna = 3 #columna en la que se encuentra el personaje 
+  personaje_fila = 0 #fila en la que se encuentra el personaje
+  personaje_columna = 9 #columna en la que se encuentra el personaje 
 #variables que ubican la posición del personaje en el mapa
   def imprimirMapa(self):# Imprime el mapa
     for fila in self.mapa:# Recorre la fila por el mapa
@@ -83,7 +77,7 @@ class Sokoban:
       self.mapa[self.personaje_fila][self.personaje_columna + 1] = 5
       self.personaje_columna += 1 #solo es la unidad actualizada del movimiento
 
-  # 8 (personaje, caja_meta, espacio)
+  # 8 (personaje_meta, caja, espacio)
     elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 2 and self.mapa[self.personaje_fila][self.personaje_columna + 2] == 1:
       self.mapa[self.personaje_fila][self.personaje_columna] = 4
       self.mapa[self.personaje_fila][self.personaje_columna + 1] = 0
@@ -111,14 +105,14 @@ class Sokoban:
       self.mapa[self.personaje_fila][self.personaje_columna + 2] = 6
       self.personaje_columna += 1 #solo es la unidad actualizada del movimiento
 
-####################################################################################
+#############################################################################
 
   # 0 (personaje, espacio)
     def moverIzquierda(self):
-      if self.mapa[self.personaje_fila][self.personaje_columna] == 0 and self.mapa[self.personaje_fila][self.personaje_columna - 1] == 1:
+      if self.mapa[self.personaje_fila][self.personaje_columna] == 0 and self.mapa[self.personaje_fila][self.personaje_columna - 1] == -1:
         self.mapa[self.personaje_fila][self.personaje_columna] = 1
         self.mapa[self.personaje_fila][self.personaje_columna - 1] = 0
-        self.personaje_columna -= 1 #solo es la unidad actualizada del movimiento
+        self.personaje_columna += 1 #solo es la unidad actualizada del movimiento
 
   def jugar(self):# Controla el flujo del juego
     while True:# Si es verdadera
