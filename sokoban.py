@@ -124,13 +124,20 @@ class Sokoban:
       self.mapa[self.personaje_fila][self.personaje_columna - 1] = 5
       self.personaje_columna -= 1
 
+  # 2 (personaje, caja, meta)
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 0 and self.mapa[self.personaje_fila][self.personaje_columna - 1] == 2 and self.mapa[self.personaje_fila][self.personaje_columna - 2] == 1:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 1
+      self.mapa[self.personaje_fila][self.personaje_columna - 1] = 0
+      self.mapa[self.personaje_fila][self.personaje_columna - 2] = 2
+      self.personaje_columna -= 1
+
 ##################################################################################
 
   def moverArriba(self):
-    pass
+    print("mover arriba")
 
   def moverAbajo(self):
-    pass
+    print("mover abajo")
     
   def jugar(self):
     while True:
@@ -144,7 +151,7 @@ class Sokoban:
         self.moverArriba()
       elif movimiento == "s":
         self.moverAbajo()
-        
+       
 juego = Sokoban()
 juego.jugar()
 
