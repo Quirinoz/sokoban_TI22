@@ -126,6 +126,12 @@ class Sokoban:
 
 ##################################################################################
 
+  def moverArriba(self):
+    pass
+
+  def moverAbajo(self):
+    pass
+    
   def jugar(self):
     while True:
       self.imprimirMapa()
