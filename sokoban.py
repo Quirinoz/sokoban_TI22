@@ -1,6 +1,10 @@
 class Sokoban:
   mapa = [
-    [3,4,1,1,1,1,2,4,1,0,1,4,2,1,1,1,1,4,3],
+    [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],
+    [3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
+    [3,4,1,1,2,1,1,4,1,0,1,4,1,1,2,1,1,4,3],
+    [3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3],
+    [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]
   ]
   #mapa donde uno puede representarse y poder moverse
 
@@ -17,7 +21,7 @@ class Sokoban:
   # 5 = personaje_meta
   # 6 = caja_meta
 
-  personaje_fila = 0 #fila en la que se encuentra el personaje
+  personaje_fila = 2 #fila en la que se encuentra el personaje
   personaje_columna = 9 #columna en la que se encuentra el personaje 
 #variables que ubican la posición del personaje en el mapa
   def imprimirMapa(self):# Imprime el mapa
@@ -108,12 +112,17 @@ class Sokoban:
 #############################################################################
 
   # 0 (personaje, espacio)
-    def moverIzquierda(self):
-      if self.mapa[self.personaje_fila][self.personaje_columna] == 0 and self.mapa[self.personaje_fila][self.personaje_columna - 1] == -1:
+  def moverIzquierda(self):
+    if self.mapa[self.personaje_fila][self.personaje_columna] == 0 and self.mapa[self.personaje_fila][self.personaje_columna - 1] == 1:
         self.mapa[self.personaje_fila][self.personaje_columna] = 1
         self.mapa[self.personaje_fila][self.personaje_columna - 1] = 0
         self.personaje_columna += 1 #solo es la unidad actualizada del movimiento
 
+  # 1 (personaje, meta)
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 0 and self.mapa[self.personaje_fila][self.personaje_columna - 1] == 4:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 1
+      self.mapa[self.personaje_fila][self.personaje_columna - 1] = 5
+      self.personaje_columna += 1
   def jugar(self):# Controla el flujo del juego
     while True:# Si es verdadera
       self.imprimirMapa()
