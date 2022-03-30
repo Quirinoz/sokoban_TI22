@@ -116,40 +116,28 @@ class Sokoban:
     if self.mapa[self.personaje_fila][self.personaje_columna] == 0 and self.mapa[self.personaje_fila][self.personaje_columna - 1] == 1:
         self.mapa[self.personaje_fila][self.personaje_columna] = 1
         self.mapa[self.personaje_fila][self.personaje_columna - 1] = 0
-        self.personaje_columna += 1 #solo es la unidad actualizada del movimiento
+        self.personaje_columna -= 1 #solo es la unidad actualizada del movimiento
 
   # 1 (personaje, meta)
     elif self.mapa[self.personaje_fila][self.personaje_columna] == 0 and self.mapa[self.personaje_fila][self.personaje_columna - 1] == 4:
       self.mapa[self.personaje_fila][self.personaje_columna] = 1
       self.mapa[self.personaje_fila][self.personaje_columna - 1] = 5
-      self.personaje_columna += 1
-  def jugar(self):# Controla el flujo del juego
-    while True:# Si es verdadera
+      self.personaje_columna -= 1
+
+##################################################################################
+
+  def jugar(self):
+    while True:
       self.imprimirMapa()
       movimiento = input("Moverse")
       if movimiento == "d":
         self.moverDerecha()
-        
-  def jugarIzquierda(self):# Controla el flujo del juego
-    while True:# Solo si es verdadera
-      self.imprimirMapa()
-      movimiento = input("Moverse")
-      if movimiento == "a":
+      elif movimiento == "a":
         self.moverIzquierda()
-
-  def jugarArriba(self):# Controla el flujo del juego
-    while True:# Solo si es verdadera
-      self.imprimirMapa()
-      movimiento = input("Moverse")
-      if movimiento == "w":
+      elif movimiento == "w":
         self.moverArriba()
-
-  def jugarAbajo(self):# Controla el flujo del juego
-    while True:# Solo si es verdadera
-      self.imprimirMapa()
-      movimiento = input("Moverse")
-      if movimiento == "s":
-        self.imprimirMapa()
+      elif movimiento == "s":
+        self.moverAbajo()
         
 juego = Sokoban()
 juego.jugar()
