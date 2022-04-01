@@ -178,6 +178,13 @@ class Sokoban:
       self.mapa[self.personaje_fila][self.personaje_columna - 2] = 6
       self.personaje_columna -= 1
 
+  # 10 (personaje_meta, caja_meta, espacio)
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna - 1] == 6 and self.mapa[self.personaje_fila][self.personaje_columna - 2] == 1:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 4
+      self.mapa[self.personaje_fila][self.personaje_columna - 1] = 5
+      self.mapa[self.personaje_fila][self.personaje_columna - 2] = 2
+      self.personaje_columna -= 1
+
 ##################################################################################
 
   def moverArriba(self):
