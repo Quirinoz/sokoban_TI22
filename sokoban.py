@@ -171,7 +171,12 @@ class Sokoban:
       self.mapa[self.personaje_fila][self.personaje_columna - 2] = 2
       self.personaje_columna -= 1
 
-  
+  # 9 (persoanje_meta, caja, meta)
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna - 1] == 2 and self.mapa[self.personaje_fila][self.personaje_columna - 2] == 4:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 4
+      self.mapa[self.personaje_fila][self.personaje_columna - 1] = 0
+      self.mapa[self.personaje_fila][self.personaje_columna - 2] = 6
+      self.personaje_columna -= 1
 
 ##################################################################################
 
