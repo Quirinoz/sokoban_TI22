@@ -194,9 +194,13 @@ class Sokoban:
 
 ##################################################################################
 
+  #0 (espacio, personaje)
   def moverArriba(self):
-    print("mover arriba")
-
+    if self.mapa[self.personaje_fila][self.personaje_columna] == 0 and self.mapa[self.personaje_fila - 1][self.personaje_columna] == 1:
+       self.mapa[self.personaje_fila][self.personaje_columna] = 1
+       self.mapa[self.personaje_fila - 1][self.personaje_columna] = 0
+       self.personaje_fila -= 1
+      
   def moverAbajo(self):
     print("mover abajo")
     
