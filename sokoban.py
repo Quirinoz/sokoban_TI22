@@ -219,6 +219,13 @@ class Sokoban:
       self.mapa[self.personaje_fila - 1][self.personaje_columna] = 0
       self.mapa[self.personaje_fila - 2][self.personaje_columna] = 2
       self.personaje_fila -= 1
+
+  # 3 (personaje, caja, meta)
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 0 and self.mapa[self.personaje_columna - 1][self.personaje_columna] == 2 and self.mapa[self.personaje_columna - 2][self.personaje_columna] == 4:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 1
+      self.mapa[self.personaje_fila - 1][self.personaje_columna] = 0
+      self.mapa[self.personaje_fila - 2][self.personaje_columna] = 6
+      self.personaje_fila -= 1
       
   def moverAbajo(self):
     print("mover abajo")
