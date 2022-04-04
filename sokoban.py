@@ -28,8 +28,10 @@ class Sokoban:
   # 6 = caja_meta
 
   personaje_fila = 5 #fila en la que se encuentra el personaje
+  
   personaje_columna = 9 #columna en la que se encuentra el personaje 
 #variables que ubican la posición del personaje en el mapa
+  
   def imprimirMapa(self):# Imprime el mapa
     for fila in self.mapa:# Recorre la fila por el mapa
       print(fila)# Imprime la fila
@@ -252,6 +254,13 @@ class Sokoban:
       self.mapa[self.personaje_fila][self.personaje_columna] = 4
       self.mapa[self.personaje_fila - 1][self.personaje_columna] = 5
       self.personaje_fila -=1
+
+  # 8 (personaje_meta, caja, espacio)
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila - 1][self.personaje_columna] == 2 and self.mapa[self.personaje_fila - 2][self.personaje_columna] == 1:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 4
+      self.mapa[self.personaje_fila - 1][self.personaje_columna] = 0
+      self.mapa[self.personaje_fila - 2][self.personaje_columna] = 2
+      self.personaje_fila -= 1
       
   def moverAbajo(self):
     print("mover abajo")
