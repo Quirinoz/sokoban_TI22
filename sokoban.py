@@ -2,10 +2,10 @@ class Sokoban:
   mapa = [
     [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],
     [3,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,3],
-    [3,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,3],
+    [3,1,1,1,2,1,1,1,1,4,1,1,1,1,2,1,1,1,3],
     [3,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,3],
     [3,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,3],
-    [3,4,1,1,2,1,1,4,1,0,1,4,1,1,2,1,1,4,3],
+    [3,4,1,1,2,1,3,4,1,0,1,4,3,1,2,1,1,4,3],
     [3,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,3],
     [3,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,3],
     [3,1,1,1,1,1,1,1,1,4,1,1,1,1,1,1,1,1,3],
@@ -225,6 +225,13 @@ class Sokoban:
       self.mapa[self.personaje_fila][self.personaje_columna] = 1
       self.mapa[self.personaje_fila - 1][self.personaje_columna] = 0
       self.mapa[self.personaje_fila - 2][self.personaje_columna] = 6
+      self.personaje_fila -= 1
+
+  # 4 (personaje, caja_meta, espacio)
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 0 and self.mapa[self.personaje_fila - 1][self.personaje_columna] == 6 and self.mapa[self.personaje_fila - 2][self.personaje_columna] == 1:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 1
+      self.mapa[self.personaje_fila - 1][self.personaje_columna] = 5
+      self.mapa[self.personaje_fila - 2][self.personaje_columna] = 2
       self.personaje_fila -= 1
       
   def moverAbajo(self):
