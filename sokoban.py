@@ -2,6 +2,9 @@ class Sokoban:
     mapa = [
         [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
         [3, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3],
+        [3, 1, 1, 2, 1, 2, 1, 1, 2, 1, 1, 1, 3],
+        [3, 1, 1, 4, 4, 1, 1, 1, 1, 1, 1, 1, 3],
+        [3, 1, 1, 4, 4, 1, 1, 1, 1, 1, 1, 1, 3],
         [3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3],
         [3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3],
         [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
@@ -217,7 +220,7 @@ class Sokoban:
         ):
             self.mapa[self.personaje_fila][self.personaje_columna] = 1
             self.mapa[self.personaje_fila][self.personaje_columna - 1] = 5
-            self.mapa[self.persoanje_fila][self.personaje_columna - 2] = 6
+            self.mapa[self.personaje_fila][self.personaje_columna - 2] = 6
             self.personaje_columna -= 1
 
         # 6 (personaje_meta, espacio)
@@ -480,6 +483,7 @@ class Sokoban:
         ):
             self.mapa[self.personaje_fila][self.personaje_columna] = 4
             self.mapa[self.personaje_fila + 1][self.personaje_columna] = 0
+            self.personaje_fila += 1
 
         # 7 (personaje_meta, meta)
         elif (
