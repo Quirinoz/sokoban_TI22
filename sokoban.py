@@ -34,6 +34,7 @@ class Sokoban:
             print(fila)  # Imprime la fila
 
     
+    
     def moverDerecha(self):
         # 0 (personaje, espacio)
         if (
