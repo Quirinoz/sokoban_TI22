@@ -2,22 +2,31 @@ class Sokoban:
     mapa = []
     personaje_fila = 0
     personaje_columna = 0
+    plano = open("nivel1.txt", "r")
   
+    def __init__(self):
+        pass
+    
     def cargarMapa(self):
-        for plano self.plano():
-        columna = [] 
+        for ghy in self.plano:
+          columna = []
+          for digito in ghy:
+            if digito == "/n":
+              continue
+            columna.append(int(digito))
+          self.mapa.append(columna)
 
-    def imprimirMapa(self):  # Imprime el mapa
-        for fila in self.mapa:  # Recorre la fila por el mapa
-            print(fila)  # Imprime la fila
+    def imprimirMapa(self):
+        for fila in self.mapa:
+            print(fila)
 
     def gps(self):
-        for linea in range(len(self.mapa)):  # Get rows number on the map
-            for columna in range(len(self.mapa[linea])):  # Get columns number on the map
-                if self.mapa[linea][columna] == 0:  # If the character is found
-                    self.personaje_linea = linea  # Update the character row position
-                    self.personaje_columna = columna  # Update the character col position
-      
+        for linea in range(len(self.mapa)):
+            for columna in range(len(self.mapa[linea])):
+                if self.mapa[linea][columna] == 0:
+                    self.personaje_linea = linea
+                    self.personaje_columna = columna
+    
     def moverDerecha(self):
         # 0 (personaje, espacio)
         if (
@@ -577,27 +586,29 @@ class Sokoban:
     ######################################################################################
 
     def jugar(self):
-        self.cargarMapa()  # Call the map
-        self.buscar_personaje_posicion()  # Update the character position for new map
-        instrucciones = "d-Right, a-Left, w-Up, s-Down"  # Instructions
-        print(instrucciones)  # Print the instructions
-        while True:  # Infinite loop
-            completo = self.Checa_Nivel_Completo()  # Check if the level is complete
-            if completo == True:  # If the level is complete
-                print("Nivel finalizado")  # Print the level complete
-                input("Presiona Enter...")  # Wait for the user to press enter
-                self.cargarMapa()  # Call the map
-                self.buscar_personaje_posicion()  # Update the character position for new map
-            self.imprimirMapa()  # Call the printMap method
+      
+        self.cargarMapa()
+        self.buscar_personaje_posicion()
+        instrucciones = "d-Right, a-Left, w-Up, s-Down"
+        print(instrucciones)
+        while True:
+            completo = self.Checa_Nivel_Completo()
+            if completo == True:
+                print("Nivel finalizado")
+                input("Presiona Enter...")
+                self.cargarMapa()
+                self.buscar_personaje_posicion()
+            self.imprimirMapa()
             print(
                 "Posicion del personaje: [{},{}]".format(
-                    self.character_linea, self.character_columna
+                    self.personaje_linea, self.personaje_columna_columna
                 )
             )
   
         while True:
             self.imprimirMapa()
             movimiento = input("Moverse")
+            self.cargarMapa()
             if movimiento == "d":
                 self.moverDerecha()
             elif movimiento == "a":
