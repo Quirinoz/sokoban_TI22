@@ -11,7 +11,7 @@ class Sokoban:
         for ghy in self.plano:
           columna = []
           for digito in ghy:
-            if digito == "/n":
+            if digito == "\n":
               continue
             columna.append(int(digito))
           self.mapa.append(columna)
@@ -21,10 +21,10 @@ class Sokoban:
             print(fila)
 
     def gps(self):
-        for linea in range(len(self.mapa)):
-            for columna in range(len(self.mapa[linea])):
-                if self.mapa[linea][columna] == 0:
-                    self.personaje_linea = linea
+        for fila in range(len(self.mapa)):
+            for columna in range(len(self.mapa[fila])):
+                if self.mapa[fila][columna] == 0:
+                    self.personaje_fila = fila
                     self.personaje_columna = columna
     
     def moverDerecha(self):
@@ -585,28 +585,15 @@ class Sokoban:
 
     ######################################################################################
 
+  
     def jugar(self):
-      
         self.cargarMapa()
-        self.buscar_personaje_posicion()
-        instrucciones = "d-Right, a-Left, w-Up, s-Down"
+        self.gps()
+        instrucciones = "d-derecha\na-izquierda\nw-arriba\ns-abajo"
         print(instrucciones)
         while True:
-            completo = self.Checa_Nivel_Completo()
-            if completo == True:
-                print("Nivel finalizado")
-                input("Presiona Enter...")
-                self.cargarMapa()
-                self.buscar_personaje_posicion()
             self.imprimirMapa()
-            print(
-                "Posicion del personaje: [{},{}]".format(
-                    self.personaje_linea, self.personaje_columna_columna
-                )
-            )
-  
-        while True:
-            self.imprimirMapa()
+            print(self.personaje_fila, self.personaje_columna)
             movimiento = input("Moverse")
             self.cargarMapa()
             if movimiento == "d":
@@ -617,7 +604,5 @@ class Sokoban:
                 self.moverArriba()
             elif movimiento == "s":
                 self.moverAbajo()
-
-
 juego = Sokoban()
 juego.jugar()
