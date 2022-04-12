@@ -166,7 +166,6 @@ class Sokoban:
 
     #############################################################################
 
-    # 0 (personaje, espacio)
     def moverIzquierda(self):
         # 0 (personaje, espacio)
         if (
@@ -306,7 +305,6 @@ class Sokoban:
 
     ##################################################################################
 
-    
     def moverArriba(self):
         # 0 (personaje, espacio)
         if (
